@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    public GameObject player;
+
     public float movementSpeed;
     public Rigidbody2D rb;
 
@@ -61,4 +63,13 @@ public class PlayerMovement : MonoBehaviour {
 
         return false;
     }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            player.transform.parent = other.gameObject.transform;
+        }
+    }
+
 }

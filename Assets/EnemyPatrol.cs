@@ -37,6 +37,14 @@ public class EnemyPatrol : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, 4f, 4f);
         }
     }
-   
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
